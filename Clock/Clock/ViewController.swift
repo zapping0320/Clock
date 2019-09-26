@@ -15,12 +15,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeMinuteLabel: UILabel!
     @IBOutlet weak var timeRightSeperatorLabel: UILabel!
     @IBOutlet weak var timeSecondLabel: UILabel!
+    
+    private var currentColorRule:[UIColor] = []
+    private var isSetRuleDefault = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //ser defaultValue
+        currentColorRule.append(ColorHelper.textColorBlue)
+        currentColorRule.append(ColorHelper.textColorRed)
+        
+        
+        
     }
 
     @IBAction func changeTextcolorRule(_ sender: Any) {
+        if(self.isSetRuleDefault)
+        {
+            currentColorRule.append(ColorHelper.textColorRed)
+            currentColorRule.append(ColorHelper.textColorBlue)
+        }
+        else
+        {
+            currentColorRule.append(ColorHelper.textColorBlue)
+            currentColorRule.append(ColorHelper.textColorRed)
+        }
+        self.isSetRuleDefault = !self.isSetRuleDefault
     }
     
 }
